@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tip Calculator!!!!!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
     <h1>Welcome to The Tip Calculator!</h1>
@@ -12,14 +13,30 @@
     <br>
 
     <h3>Please enter the bill amount:</h3>
+    <div>
     <form>
-        Enter the Bill Amount: <input type = "number" step = "0.01" name="bill"> <br>
-        Enter the desired tip amount: <input type = "number" step = "0.01" name = "tip"> <br>
-        <input type = "submit" name = "Submit">
+        Enter the Bill Amount: <input type = "number" step = "0.01" name="bill" id = "bill"> <br>
+        Enter the desired tip amount: <input type = "number" step = "0.01" name = "tip" id = "tip"> <br>
+        <input type = "submit" name = "Submit" id="submit">
     </form>
+</div>
+<h1 id = "final">
 
+</h1>
     <form>
         
     </form>
+
+    <script type = "text/javascript">
+
+    $(document).ready(function() {
+        $("#submit").on("click", function() {
+            var final_tip = $("#bill").val()*$("#tip").val();
+            console.log(final_tip);
+            $("#final").text(final_tip);
+        });
+        
+    });
+    </script>
 </body>
 </html>
