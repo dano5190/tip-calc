@@ -17,7 +17,7 @@
     <form>
         Enter the Bill Amount: <input type = "number" step = "0.01" name="bill" id = "bill"> <br>
         Enter the desired tip amount: <input type = "number" step = "0.01" name = "tip" id = "tip"> <br>
-        <input type = "submit" name = "Submit" id="submit">
+        <button name = "Submit" id="submit">Calculate Tip!</button>
     </form>
 </div>
 <h1 id = "final">
@@ -31,9 +31,13 @@
 
     $(document).ready(function() {
         $("#submit").on("click", function() {
+            event.preventDefault();
             var final_tip = $("#bill").val()*$("#tip").val();
+            var final_cost = parseFloat($("#bill").val()) + parseFloat(final_tip.toFixed(2));
             console.log(final_tip);
-            $("#final").text(final_tip);
+            console.log(final_cost);
+            $("#final").text("The tip amount is: $" + final_tip.toFixed(2) +
+            " So the total you pay comes to: $" + final_cost);
         });
         
     });
